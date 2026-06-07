@@ -95,7 +95,7 @@ function Consulta() {
           <label className="block mb-2 text-[.75rem] text-muted uppercase tracking-widest">Mensagem (opcional)</label>
           <textarea placeholder="Descreva brevemente sua queixa principal..." className="bg-warm-white px-4 py-3 border border-border focus:border-accent rounded-xs outline-none w-full min-h-22.5 font-sans text-[.92rem] text-charcoal transition-colors duration-200 resize-y"></textarea>
         </div>
-        <button className="bg-charcoal py-[.9rem] border-none rounded-xs w-full font-sans text-[.82rem] text-warm-white uppercase tracking-[.12em] transition-colors duration-200 hover:bg-accent-dark cursor-pointer" onClick={() => alert('Solicitação enviada! Entraremos em contato em breve.')}>
+        <button className="bg-charcoal py-[.9rem] rounded-xs w-full font-sans text-[.82rem] text-warm-white uppercase tracking-[.12em] transition-[background] duration-200 hover:bg-accent-dark cursor-pointer" onClick={() => alert('Solicitação enviada! Entraremos em contato em breve.')}>
           Solicitar Agendamento
         </button>
       </div>

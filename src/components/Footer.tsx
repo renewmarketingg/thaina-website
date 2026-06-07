@@ -20,7 +20,9 @@ function Footer() {
         </div>
       </footer>
       <div className="flex justify-between items-center bg-[rgba(0,0,0,0.8)] px-16 py-4 text-[.75rem] text-[rgba(250,249,246,0.3)]">
-        <span>© {new Date().getFullYear()} Dra. Thaina Pereira. Todos os direitos reservados.</span>
+        <span>© {new Date().getFullYear()} Dra. Thaina Pereira. Todos os direitos reservados.
+          By - <a role="link" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/fabio_ghizoni" className="hover:text-warm-white transition-colors duration-200">Fábio Henrique</a> : <a role="link" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/renew_diggital"  className="hover:text-warm-white transition-colors duration-200">RENEW</a>
+        </span>
         <span>CRM SP 216373</span>
       </div>
     </>
