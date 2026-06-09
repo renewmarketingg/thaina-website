@@ -2,9 +2,9 @@ import { LazyImage } from "./ui/LazyImage"
 
 function Sobre() {
   return (
-    <section id="sobre" className="grid grid-cols-2 bg-cream">
-      <LazyImage src="/clinovi.jpg" alt="Foto consultório Clinovi" className="min-h-[32.5rem]"/>
-      <div className="flex flex-col justify-center px-16 py-20">
+    <section id="sobre" className="grid grid-cols-1 lg:grid-cols-2 bg-cream">
+      <LazyImage src="/clinovi.jpg" alt="Foto consultório Clinovi" className="min-h-[50vh] lg:min-h-[32.5rem] order-2 lg:order-1"/>
+      <div className="flex flex-col justify-center px-6 lg:px-16 py-10 lg:py-20 order-1 lg:order-2">
         <p className="before:content-[''] before:block before:w-6 before:h-px before:bg-accent flex items-center text-[.75rem] tracking-[.2em] uppercase text-accent mb-4 gap-3">Sobre mim</p>
         <h2 className="font-serif text-[clamp(2rem,3vw,2.8rem)] font-light leading-[1.2] mb-6 text-charcoal">
           Medicina com propósito e precisão
@@ -18,7 +18,7 @@ function Sobre() {
         <p className="text-muted font-light mb-4 text-[.97rem]">
           Acredito que cada corpo tem sua própria história. Meu papel é decifrá-la junto com você.
         </p>
-        <div className="grid grid-cols-2 gap-6 mt-8 pt-8 border-t border-border">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8 pt-8 border-t border-border">
           <div className="font-serif">
             <p className="text-[2.2rem] text-accent leading-none mb-1">@drathainapereira</p>
             <p className="text-[.8rem] text-muted uppercase tracking-[.08em]">No Instagram</p>

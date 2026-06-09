@@ -2,8 +2,8 @@ import { LazyImage } from "./ui/LazyImage"
 
 function Hero() {
   return (
-    <section id="inicio" className="min-h-[calc(100dvh-5rem)] grid grid-cols-2 pt-20">
-      <div className="bg-warm-white flex flex-col justify-center px-16 py-20">
+    <section id="inicio" className="min-h-[calc(100dvh-5rem)] grid grid-cols-1 lg:grid-cols-2 pt-20">
+      <div className="bg-warm-white flex flex-col justify-center px-6 sm:px-10 lg:px-16 py-10 sm:py-16 lg:py-20">
         <p className="before:content-[''] before:block before:w-8 before:h-px before:bg-accent text-[.75rem] tracking-[.2em] uppercase text-accent mb-6 flex items-center gap-3">Médica Endocrinologista</p>
         <h1 className="font-serif text-charcoal text-[clamp(3rem,5vw,4.5rem)] font-light leading-[1.1] tracking-[-0.01em] mb-6">
           Cuidado<br /><em className="italic text-accent">hormonal</em><br />que transforma

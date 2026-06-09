@@ -33,8 +33,8 @@ const especialidades = [
 
 function Especialidades() {
   return (
-    <section className="px-16 py-24 bg-warm-white" id="especialidades">
-      <div className="grid grid-cols-2 gap-8 mb-16">
+    <section className="px-4 sm:px-8 lg:px-16 py-12 sm:py-16 lg:py-24 bg-warm-white" id="especialidades">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 mb-12 lg:mb-16">
         <div>
           <p className="before:content-[''] before:block before:w-6 before:h-px before:bg-accent flex items-center text-[.75rem] tracking-[.2em] uppercase text-accent mb-4 gap-3">Áreas de atuação</p>
           <h2 className="font-serif text-[clamp(2rem,3vw,2.8rem)] font-light leading-[1.2] text-charcoal">O que eu trato</h2>
@@ -44,9 +44,9 @@ function Especialidades() {
         </p>
       </div>
 
-      <div className="grid grid-cols-3 gap-px bg-border border border-border">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border border border-border">
         {especialidades.map((item) => (
-          <div key={item.title} className="bg-warm-white p-10 px-8 transition-colors duration-200 hover:bg-sage-pale">
+          <div key={item.title} className="bg-warm-white p-6 sm:p-8 lg:p-10 px-4 sm:px-6 lg:px-8 transition-colors duration-200 hover:bg-sage-pale">
             <svg className="w-10 h-10 mb-5 text-accent" viewBox="0 0 40 40" fill="none" stroke="currentColor" strokeWidth="1.2">
               {item.icon}
             </svg>

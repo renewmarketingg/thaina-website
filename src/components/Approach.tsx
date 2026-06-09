@@ -7,7 +7,7 @@ const passos = [
 
 function Abordagem() {
   return (
-    <section id="abordagem" className="bg-charcoal text-warm-white py-24 px-16 grid grid-cols-[1fr_1.5fr] gap-20 items-center">
+    <section id="abordagem" className="bg-charcoal text-warm-white py-12 sm:py-16 lg:py-24 px-6 sm:px-10 lg:px-16 grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-8 lg:gap-20 items-center">
       <div>
         <p className="before:content-[''] before:block before:w-6 before:h-px before:bg-sage-light flex items-center text-[.75rem] tracking-[.2em] uppercase text-sage-light mb-4 gap-3">Minha abordagem</p>
         <h2 className="font-serif text-[clamp(2rem,3vw,2.8rem)] font-light leading-[1.2] text-warm-white">

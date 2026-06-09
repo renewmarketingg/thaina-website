@@ -1,37 +1,29 @@
+import { useState } from "react"
+
 function Consulta() {
+  const [nome, setNome] = useState("")
+  const [telefone, setTelefone] = useState("")
+  const [especialidade, setEspecialidade] = useState("")
+  const [mensagem, setMensagem] = useState("")
+
+  function handleSubmit(e: React.SubmitEvent<HTMLFormElement>) {
+    e.preventDefault()
+    const texto = `Olá, Dra. Thaina!
+
+Gostaria de solicitar um agendamento:
+
+*Nome:* ${nome}
+*Telefone:* ${telefone}
+*Especialidade desejada:* ${especialidade}${mensagem ? `\n*Mensagem:* ${mensagem}` : ""}
+
+Aguardo retorno. Obrigado!`
+
+    window.open(`https://wa.me/5511917983917?text=${encodeURIComponent(texto)}`, "_blank")
+  }
+
   return (
-    <section id="consulta" className="items-start gap-20 grid grid-cols-2 bg-warm-white px-16 py-24">
+    <section id="consulta" className="items-start gap-8 lg:gap-20 grid grid-cols-1 lg:grid-cols-2 bg-warm-white px-6 sm:px-10 lg:px-16 py-12 sm:py-16 lg:py-24">
       <div>
-      {/*
-    .consulta h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2rem, 3vw, 2.8rem);
-      font-weight: 300;
-      line-height: 1.2;
-      margin-bottom: 1.25rem;
-    }
-
-    .consulta > div:first-child p {
-      color: var(--muted);
-      font-size: 0.97rem;
-      font-weight: 300;
-      margin-bottom: 2rem;
-    }
-
-
-      .form-section {
-      background: var(--cream);
-      border: 1px solid var(--border);
-      padding: 2.5rem;
-      border-radius: 2px;
-    }
-
-    .form-section h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.5rem;
-      font-weight: 400;
-      margin-bottom: 1.5rem;
-    } */}
         <p className="before:block flex items-center gap-3 before:bg-accent mb-4 before:w-6 before:h-px text-[.75rem] text-accent uppercase before:content-[''] tracking-[.2em]">Agendamento</p>
         <h2 className="mb-5 font-serif font-light text-[clamp(2rem,3vw,2.8rem)] text-charcoal leading-[1.2]">Agende sua consulta</h2>
         <p className="mb-8 font-light text-[.97rem] text-muted">Entre em contato e dê o primeiro passo para cuidar da sua saúde hormonal com quem entende do assunto.</p>
@@ -68,37 +60,37 @@ function Consulta() {
         </div>
       </div>
 
-      <div className="bg-cream p-10 border border-border rounded-xs">
+      <form onSubmit={handleSubmit} className="bg-cream p-6 lg:p-10 border border-border rounded-xs">
         <h3 className="mb-6 font-serif font-normal text-[1.5rem] text-charcoal">Solicitar agendamento</h3>
         <div className="mb-5">
           <label className="block mb-2 text-[.75rem] text-muted uppercase tracking-widest">Nome completo</label>
-          <input type="text" placeholder="Seu nome" className="bg-warm-white px-4 py-3 border border-border focus:border-accent rounded-xs outline-none w-full font-sans text-[.92rem] text-charcoal transition-colors duration-200" />
+          <input type="text" placeholder="Seu nome" value={nome} onChange={(e) => setNome(e.target.value)} required className="bg-warm-white px-4 py-3 border border-border focus:border-accent rounded-xs outline-none w-full font-sans text-[.92rem] text-charcoal transition-colors duration-200" />
         </div>
         <div className="mb-5">
           <label className="block mb-2 text-[.75rem] text-muted uppercase tracking-widest">Telefone / WhatsApp</label>
-          <input type="tel" placeholder="(00) 00000-0000" className="bg-warm-white px-4 py-3 border border-border focus:border-accent rounded-xs outline-none w-full font-sans text-[.92rem] text-charcoal transition-colors duration-200" />
+          <input type="tel" placeholder="(00) 00000-0000" value={telefone} onChange={(e) => setTelefone(e.target.value)} required className="bg-warm-white px-4 py-3 border border-border focus:border-accent rounded-xs outline-none w-full font-sans text-[.92rem] text-charcoal transition-colors duration-200" />
         </div>
         <div className="mb-5">
           <label className="block mb-2 text-[.75rem] text-muted uppercase tracking-widest">Especialidade desejada</label>
-          <select className="bg-warm-white px-4 py-3 border border-border focus:border-accent rounded-xs outline-none w-full font-sans text-[.92rem] text-charcoal transition-colors duration-200">
+          <select value={especialidade} onChange={(e) => setEspecialidade(e.target.value)} required className="bg-warm-white px-4 py-3 border border-border focus:border-accent rounded-xs outline-none w-full font-sans text-[.92rem] text-charcoal transition-colors duration-200">
             <option value="">Selecione...</option>
-            <option>Tireoide</option>
-            <option>Diabetes</option>
-            <option>Obesidade / Emagrecimento</option>
-            <option>Menopausa / Reposição Hormonal</option>
-            <option>SOP / Saúde Feminina</option>
-            <option>Osteoporose</option>
-            <option>Outro</option>
+            <option value="Tireoide">Tireoide</option>
+            <option value="Diabetes">Diabetes</option>
+            <option value="Obesidade / Emagrecimento">Obesidade / Emagrecimento</option>
+            <option value="Menopausa / Reposição Hormonal">Menopausa / Reposição Hormonal</option>
+            <option value="SOP / Saúde Feminina">SOP / Saúde Feminina</option>
+            <option value="Osteoporose">Osteoporose</option>
+            <option value="Outro">Outro</option>
           </select>
         </div>
         <div className="mb-5">
           <label className="block mb-2 text-[.75rem] text-muted uppercase tracking-widest">Mensagem (opcional)</label>
-          <textarea placeholder="Descreva brevemente sua queixa principal..." className="bg-warm-white px-4 py-3 border border-border focus:border-accent rounded-xs outline-none w-full min-h-22.5 font-sans text-[.92rem] text-charcoal transition-colors duration-200 resize-y"></textarea>
+          <textarea placeholder="Descreva brevemente sua queixa principal..." value={mensagem} onChange={(e) => setMensagem(e.target.value)} className="bg-warm-white px-4 py-3 border border-border focus:border-accent rounded-xs outline-none w-full min-h-22.5 font-sans text-[.92rem] text-charcoal transition-colors duration-200 resize-y"></textarea>
         </div>
-        <button className="bg-charcoal py-[.9rem] rounded-xs w-full font-sans text-[.82rem] text-warm-white uppercase tracking-[.12em] transition-[background] duration-200 hover:bg-accent-dark cursor-pointer" onClick={() => alert('Solicitação enviada! Entraremos em contato em breve.')}>
+        <button type="submit" className="bg-charcoal py-[.9rem] rounded-xs w-full font-sans text-[.82rem] text-warm-white uppercase tracking-[.12em] transition-[background] duration-200 hover:bg-accent-dark cursor-pointer">
           Solicitar Agendamento
         </button>
-      </div>
+      </form>
     </section>
   )
 }

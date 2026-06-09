@@ -1,5 +1,5 @@
 function WhatsAppFloat() {
-  const waClass = `fixed bottom-8 right-8 w-14 h-14 bg-accent rounded-[50%] flex items-center justify-center 
+  const waClass = `fixed bottom-4 right-4 sm:bottom-8 sm:right-8 w-14 h-14 bg-accent rounded-full flex items-center justify-center 
     shadow-[0_4px_16px_rgba(0,0,0,0.18)] text-white transition-transform transition-shadow duration-200 z-200 hover:scale-[1.08] hover:shadow-[0_6px_24px_rgba(0,0,0,0.22)]`;
   return (
     <a href="https://wa.me/5511917983917" target="_blank" rel="noopener noreferrer" className={waClass} aria-label="Falar pelo WhatsApp">
