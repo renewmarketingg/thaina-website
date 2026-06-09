@@ -19,7 +19,7 @@ function Instagram() {
   ]
   return (
     <section id="instagram" className="bg-cream px-6 sm:px-10 lg:px-16 py-12 sm:py-16 lg:py-24">
-      <div className="flex justify-between items-end gap-4 mb-12">
+      <div className="flex sm:flex-row flex-col sm:justify-between sm:items-end gap-4 mb-12">
         <div>
           <p className="before:block flex items-center gap-3 before:bg-accent mb-4 before:w-6 before:h-px text-[.75rem] text-accent uppercase before:content-[''] tracking-[.2em]">Redes sociais</p>
           <h2 className="font-serif font-light text-[2.2rem] text-charcoal">No Instagram</h2>
