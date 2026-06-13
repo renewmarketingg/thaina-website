@@ -1,73 +1,47 @@
-# React + TypeScript + Vite
+# Dra. Thaina Pereira — Endocrinologista
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Single-page marketing site for Dra. Thaina Pereira, endocrinologist in Brazil.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **React 19** + **TypeScript 6** (strict)
+- **Vite 8** with `@vitejs/plugin-react`
+- **Tailwind CSS 4** (CSS-first, `@theme` tokens in `src/index.css`)
+- **ESLint 10** flat config
 
-## React Compiler
+## Commands
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| Command | Description |
+|---|---|
+| `pnpm dev` | Start dev server (HMR) |
+| `pnpm build` | Type-check (`tsc -b`) + production bundle (`vite build`) |
+| `pnpm preview` | Preview production build locally |
+| `pnpm lint` | Lint all source files |
 
-## Expanding the ESLint configuration
+## Project Structure
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+src/
+  main.tsx                  # React entry point
+  App.tsx                   # Composes all page sections
+  index.css                 # Tailwind v4 + theme tokens
+  util.ts                   # cn() helper + validarTelefone()
+  components/               # Page sections: Navbar, Hero, About, Specialties, Approach, Instagram, Consultation, Footer
+  components/ui/            # Reusable: LazyImage, Loading, WhatsAppFloat
+  icons/                    # SVG icon components with barrel export
+public/                     # Static assets (images, SVGs)
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Sections
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- Hero — full-screen presentation with photo and CTA
+- About — professional background and approach
+- Specialties — list of endocrinology areas
+- Approach — treatment philosophy
+- Instagram — embedded social proof
+- Consultation — WhatsApp lead capture form
+- Footer — contact info and social links
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Content
+
+All content and UI strings are in **Portuguese (pt-BR)**.

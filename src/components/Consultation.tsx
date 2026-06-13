@@ -1,4 +1,7 @@
 import { useState } from "react"
+import Phone from "../icons/phone.svg?react"
+import Calendar from "../icons/calendar.svg?react"
+import User from "../icons/user.svg?react"
 import { validarTelefone } from "../util"
 
 function Consulta() {
@@ -46,19 +49,19 @@ Aguardo retorno. Obrigado!`
         <ul className="flex flex-col gap-4 list-none">
           <li className="flex items-start gap-4 text-[.9rem] text-slate">
             <span className="flex justify-center items-center border border-border rounded-full w-9 h-9 text-teal shrink-0">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 16.1v3a2 2 0 0 1-2.2 2A19.9 19.9 0 0 1 2.9 4.2a2 2 0 0 1 2-2.2h3a2 2 0 0 1 2 1.7l.3 2a2 2 0 0 1-.6 1.9l-1.2.5a16 16 0 0 0 7.5 7.5l.5-1.2a2 2 0 0 1 1.9-.6l2 .3a2 2 0 0 1 1.7 2z"/></svg>
+              <Phone />
             </span>
             <div><strong className="block mb-0.5 text-[.82rem] text-navy uppercase tracking-[.08em]">WhatsApp</strong>Envie uma mensagem para agendar</div>
           </li>
           <li className="flex items-start gap-4 text-[.9rem] text-slate">
             <span className="flex justify-center items-center border border-border rounded-full w-9 h-9 text-teal shrink-0">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M8 2v4m8-4v4M3 10h18"/></svg>
+              <Calendar />
             </span>
             <div><strong className="block mb-0.5 text-[.82rem] text-navy uppercase tracking-[.08em]">Consultas presenciais e online</strong>Disponível para teleconsulta</div>
           </li>
           <li className="flex items-start gap-4 text-[.9rem] text-slate">
             <span className="flex justify-center items-center border border-border rounded-full w-9 h-9 text-teal shrink-0">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+              <User />
             </span>
             <div><strong className="block mb-0.5 text-[.82rem] text-navy uppercase tracking-[.08em]">Atendimento particular</strong>Verifique possibilidade de reembolso</div>
           </li>
@@ -72,16 +75,16 @@ Aguardo retorno. Obrigado!`
       <form onSubmit={handleSubmit} className="bg-teal-light p-6 lg:p-10 border border-border rounded-xs">
         <h3 className="mb-6 font-serif font-normal text-[1.5rem] text-navy">Solicitar agendamento</h3>
         <div className="mb-5">
-          <label className="block mb-2 text-[.75rem] text-slate uppercase tracking-widest">Nome completo</label>
-          <input type="text" placeholder="Seu nome" value={nome} onChange={(e) => setNome(e.target.value)} required className="bg-warm-white px-4 py-3 border border-border focus:border-teal rounded-xs outline-none w-full font-sans text-[.92rem] text-navy transition-colors duration-200" />
+          <label htmlFor="nome" className="block mb-2 text-[.75rem] text-slate uppercase tracking-widest">Nome completo</label>
+          <input id="nome" name="nome" type="text" placeholder="Seu nome" value={nome} onChange={(e) => setNome(e.target.value)} required className="bg-warm-white px-4 py-3 border border-border focus:border-teal rounded-xs outline-none w-full font-sans text-[.92rem] text-navy transition-colors duration-200" />
         </div>
         <div className="mb-5">
-          <label className="block mb-2 text-[.75rem] text-slate uppercase tracking-widest">Telefone / WhatsApp</label>
-          <input type="tel" placeholder="(00) 00000-0000" value={telefone} onChange={handleTelefoneChange} required className="bg-warm-white px-4 py-3 border border-border focus:border-teal rounded-xs outline-none w-full font-sans text-[.92rem] text-navy transition-colors duration-200" />
+          <label htmlFor="telefone" className="block mb-2 text-[.75rem] text-slate uppercase tracking-widest">Telefone / WhatsApp</label>
+          <input id="telefone" name="telefone" type="tel" placeholder="(00) 00000-0000" value={telefone} onChange={handleTelefoneChange} required className="bg-warm-white px-4 py-3 border border-border focus:border-teal rounded-xs outline-none w-full font-sans text-[.92rem] text-navy transition-colors duration-200" />
         </div>
         <div className="mb-5">
-          <label className="block mb-2 text-[.75rem] text-slate uppercase tracking-widest">Especialidade desejada</label>
-          <select value={especialidade} onChange={(e) => setEspecialidade(e.target.value)} required className="bg-warm-white px-4 py-3 border border-border focus:border-teal rounded-xs outline-none w-full font-sans text-[.92rem] text-navy transition-colors duration-200">
+          <label htmlFor="especialidade" className="block mb-2 text-[.75rem] text-slate uppercase tracking-widest">Especialidade desejada</label>
+          <select id="especialidade" name="especialidade" value={especialidade} onChange={(e) => setEspecialidade(e.target.value)} required className="bg-warm-white px-4 py-3 border border-border focus:border-teal rounded-xs outline-none w-full font-sans text-[.92rem] text-navy transition-colors duration-200">
             <option value="">Selecione...</option>
             <option value="Tireoide">Tireoide</option>
             <option value="Diabetes">Diabetes</option>
@@ -93,8 +96,8 @@ Aguardo retorno. Obrigado!`
           </select>
         </div>
         <div className="mb-5">
-          <label className="block mb-2 text-[.75rem] text-slate uppercase tracking-widest">Mensagem (opcional)</label>
-          <textarea placeholder="Descreva brevemente sua queixa principal..." value={mensagem} onChange={(e) => setMensagem(e.target.value)} className="bg-warm-white px-4 py-3 border border-border focus:border-teal rounded-xs outline-none w-full min-h-22.5 font-sans text-[.92rem] text-navy transition-colors duration-200 resize-y"></textarea>
+          <label htmlFor="mensagem" className="block mb-2 text-[.75rem] text-slate uppercase tracking-widest">Mensagem (opcional)</label>
+          <textarea id="mensagem" name="mensagem" placeholder="Descreva brevemente sua queixa principal..." value={mensagem} onChange={(e) => setMensagem(e.target.value)} className="bg-warm-white px-4 py-3 border border-border focus:border-teal rounded-xs outline-none w-full min-h-22.5 font-sans text-[.92rem] text-navy transition-colors duration-200 resize-y"></textarea>
         </div>
         <button type="submit" className="bg-navy hover:bg-navy-deep py-[.9rem] rounded-xs w-full font-sans text-[.82rem] text-warm-white uppercase tracking-[.12em] transition-[background] duration-200 cursor-pointer">
           Solicitar Agendamento

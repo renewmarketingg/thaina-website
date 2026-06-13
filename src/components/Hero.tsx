@@ -1,3 +1,4 @@
+import ArrowRight from "../icons/arrow-right.svg?react"
 import { LazyImage } from "./ui/LazyImage"
 
 function Hero() {
@@ -15,14 +16,12 @@ function Hero() {
           <a href="#consulta" className="inline-block bg-navy hover:bg-slate px-8 py-[.9rem] rounded-xs text-[.82rem] text-warm-white uppercase tracking-widest transition-[background] duration-200">Agendar Consulta</a>
           <a href="#sobre" className="inline-flex items-center gap-2 text-[.85rem] text-slate hover:text-navy no-underline transition-colors [&_svg]:transition-transform hover:[&_svg]:translate-x-1 duration-200 [&_svg]:duration-200">
             Conheça meu trabalho
-            <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
+            <ArrowRight />
           </a>
         </div>
       </div>
       <div className="relative flex justify-center items-end overflow-hidden">
-        <LazyImage />
+        <LazyImage fetchPriority="high" loading="eager"/>
         <div className="bottom-10 left-8 absolute bg-warm-white px-5 py-4 border border-border rounded-xs">
           <p className="mb-1 text-[.7rem] text-slate uppercase tracking-[.12em]">Especialidade</p>
           <p className="font-serif font-medium text-[1.1rem]">Endocrinologia & Metabolismo</p>
