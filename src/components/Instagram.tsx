@@ -1,31 +1,22 @@
+import { LazyImage } from "./ui/LazyImage";
+
 function Instagram() {
-  const cards = [
-    {
-      title: 'Tireoide',
-      img: '/tireoide.jpg',
-    },
-    {
-      title: 'Hormônios',
-      img: '/sistema_endocrino.jpg',
-    },
-    {
-      title: 'Diabetes',
-      img: '/diabetes.jpg',
-    },
-    {
-      title: 'Saúde feminina',
-      img: '/saude_feminina.png',
-    },
+  const extPhotos = 'webp'
+  const images = [
+  `/thaina1.${extPhotos}`,
+  `/thaina2.${extPhotos}`,
+  `/thaina_formal2.${extPhotos}`,
+  `/thaina3.${extPhotos}`,
   ]
   return (
-    <section id="instagram" className="bg-cream px-6 sm:px-10 lg:px-16 py-12 sm:py-16 lg:py-24">
+    <section id="instagram" className="bg-teal-light px-6 sm:px-10 lg:px-16 py-12 sm:py-16 lg:py-24">
       <div className="flex sm:flex-row flex-col sm:justify-between sm:items-end gap-4 mb-12">
         <div>
-          <p className="before:block flex items-center gap-3 before:bg-accent mb-4 before:w-6 before:h-px text-[.75rem] text-accent uppercase before:content-[''] tracking-[.2em]">Redes sociais</p>
-          <h2 className="font-serif font-light text-[2.2rem] text-charcoal">No Instagram</h2>
+          <p className="before:block flex items-center gap-3 before:bg-teal mb-4 before:w-6 before:h-px text-[.75rem] text-teal uppercase before:content-[''] tracking-[.2em]">Redes sociais</p>
+          <h2 className="font-serif font-light text-[2.2rem] text-navy">No Instagram</h2>
         </div>
         <div>
-          <a href="https://www.instagram.com/drathainapereira" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2 text-[.82rem] text-accent no-underline uppercase tracking-widest">
+          <a href="https://www.instagram.com/drathainapereira" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2 text-[.82rem] text-teal no-underline uppercase tracking-widest">
             @drathainapereira
             <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" className="overflow-visible" xmlns="http://www.w3.org/2000/svg">
               <path
@@ -38,11 +29,14 @@ function Instagram() {
         </div>
       </div>
       <div className="gap-4 grid grid-cols-2 sm:grid-cols-4">
-        {cards.map((card) => (
-            <a key={card.title} href="https://www.instagram.com/drathainapereira" target="_blank" rel="noopener noreferrer" className="bg-sage-pale rounded-xs aspect-square overflow-hidden hover:scale-[0.98] transition-transform duration-200">
-              <img src={card.img} alt={`Imagem de ${card.title}`} className="size-full object-cover"/>
+        {images.map((img, i) => {
+          const isCustomCards = i === 1 || i === 2 || i === 3;
+          return (
+            <a key={i} href="https://www.instagram.com/drathainapereira" target="_blank" rel="noopener noreferrer" className="group rounded-xs aspect-square overflow-hidden">
+              <LazyImage src={img} alt={`Imagem de  Thaina ${i}`} imgClassName={`transition-transform duration-300 group-hover:scale-110 ${isCustomCards ? "object-center" : ""}`}/>
             </a>
-        ))}
+          )
+        })}
       </div>
     </section>
   )

@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { validarTelefone } from "../util"
 
 function Consulta() {
   const [nome, setNome] = useState("")
@@ -8,6 +9,14 @@ function Consulta() {
 
   function handleSubmit(e: React.SubmitEvent<HTMLFormElement>) {
     e.preventDefault()
+
+    const telefoneLimpo = telefone.replace(/\D/g, "")
+
+    if (!validarTelefone(telefoneLimpo)) {
+      alert("Por favor, informe um telefone válido com DDD.")
+      return
+    }
+
     const texto = `Olá, Dra. Thaina!
 
 Gostaria de solicitar um agendamento:
@@ -20,59 +29,59 @@ Aguardo retorno. Obrigado!`
 
     window.open(`https://wa.me/5511917983917?text=${encodeURIComponent(texto)}`, "_blank")
   }
+  
+  function handleTelefoneChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const valor = e.target.value.replace(/\D/g, "")
+    setTelefone(valor)
+  }
+
 
   return (
     <section id="consulta" className="items-start gap-8 lg:gap-20 grid grid-cols-1 lg:grid-cols-2 bg-warm-white px-6 sm:px-10 lg:px-16 py-12 sm:py-16 lg:py-24">
       <div>
-        <p className="before:block flex items-center gap-3 before:bg-accent mb-4 before:w-6 before:h-px text-[.75rem] text-accent uppercase before:content-[''] tracking-[.2em]">Agendamento</p>
-        <h2 className="mb-5 font-serif font-light text-[clamp(2rem,3vw,2.8rem)] text-charcoal leading-[1.2]">Agende sua consulta</h2>
-        <p className="mb-8 font-light text-[.97rem] text-muted">Entre em contato e dê o primeiro passo para cuidar da sua saúde hormonal com quem entende do assunto.</p>
+        <p className="before:block flex items-center gap-3 before:bg-teal mb-4 before:w-6 before:h-px text-[.75rem] text-teal uppercase before:content-[''] tracking-[.2em]">Agendamento</p>
+        <h2 className="mb-5 font-serif font-light text-[clamp(2rem,3vw,2.8rem)] text-navy leading-[1.2]">Agende sua consulta</h2>
+        <p className="mb-8 font-light text-[.97rem] text-slate">Entre em contato e dê o primeiro passo para cuidar da sua saúde hormonal com quem entende do assunto.</p>
 
         <ul className="flex flex-col gap-4 list-none">
-          <li className="flex items-start gap-4 text-[.9rem] text-muted">
-            <span className="flex justify-center items-center border border-border rounded-full w-9 h-9 text-accent shrink-0">
-              <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14v2.92z" />
-              </svg>
+          <li className="flex items-start gap-4 text-[.9rem] text-slate">
+            <span className="flex justify-center items-center border border-border rounded-full w-9 h-9 text-teal shrink-0">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 16.1v3a2 2 0 0 1-2.2 2A19.9 19.9 0 0 1 2.9 4.2a2 2 0 0 1 2-2.2h3a2 2 0 0 1 2 1.7l.3 2a2 2 0 0 1-.6 1.9l-1.2.5a16 16 0 0 0 7.5 7.5l.5-1.2a2 2 0 0 1 1.9-.6l2 .3a2 2 0 0 1 1.7 2z"/></svg>
             </span>
-            <div><strong className="block mb-0.5 text-[.82rem] text-charcoal uppercase tracking-[.08em]">WhatsApp</strong>Envie uma mensagem para agendar</div>
+            <div><strong className="block mb-0.5 text-[.82rem] text-navy uppercase tracking-[.08em]">WhatsApp</strong>Envie uma mensagem para agendar</div>
           </li>
-          <li className="flex items-start gap-4 text-[.9rem] text-muted">
-            <span className="flex justify-center items-center border border-border rounded-full w-9 h-9 text-accent shrink-0">
-              <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-                <rect x="2" y="3" width="20" height="18" rx="2" /><path d="M8 2v3M16 2v3M2 9h20" />
-              </svg>
+          <li className="flex items-start gap-4 text-[.9rem] text-slate">
+            <span className="flex justify-center items-center border border-border rounded-full w-9 h-9 text-teal shrink-0">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M8 2v4m8-4v4M3 10h18"/></svg>
             </span>
-            <div><strong className="block mb-0.5 text-[.82rem] text-charcoal uppercase tracking-[.08em]">Consultas presenciais e online</strong>Disponível para teleconsulta</div>
+            <div><strong className="block mb-0.5 text-[.82rem] text-navy uppercase tracking-[.08em]">Consultas presenciais e online</strong>Disponível para teleconsulta</div>
           </li>
-          <li className="flex items-start gap-4 text-[.9rem] text-muted">
-            <span className="flex justify-center items-center border border-border rounded-full w-9 h-9 text-accent shrink-0">
-              <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z" />
-              </svg>
+          <li className="flex items-start gap-4 text-[.9rem] text-slate">
+            <span className="flex justify-center items-center border border-border rounded-full w-9 h-9 text-teal shrink-0">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
             </span>
-            <div><strong className="block mb-0.5 text-[.82rem] text-charcoal uppercase tracking-[.08em]">Atendimento particular</strong>Verifique possibilidade de reembolso</div>
+            <div><strong className="block mb-0.5 text-[.82rem] text-navy uppercase tracking-[.08em]">Atendimento particular</strong>Verifique possibilidade de reembolso</div>
           </li>
         </ul>
 
         <div className="mt-8">
-          <a href="https://wa.me/5511917983917" target="_blank" rel="noopener noreferrer" className="inline-block bg-charcoal px-8 py-[.9rem] rounded-xs text-[.82rem] text-warm-white no-underline uppercase tracking-widest transition-colors duration-200 hover:bg-accent-dark">Falar pelo WhatsApp</a>
+          <a href="https://wa.me/5511917983917" target="_blank" rel="noopener noreferrer" className="inline-block bg-navy hover:bg-navy-deep px-8 py-[.9rem] rounded-xs text-[.82rem] text-warm-white no-underline uppercase tracking-widest transition-colors duration-200">Falar pelo WhatsApp</a>
         </div>
       </div>
 
-      <form onSubmit={handleSubmit} className="bg-cream p-6 lg:p-10 border border-border rounded-xs">
-        <h3 className="mb-6 font-serif font-normal text-[1.5rem] text-charcoal">Solicitar agendamento</h3>
+      <form onSubmit={handleSubmit} className="bg-teal-light p-6 lg:p-10 border border-border rounded-xs">
+        <h3 className="mb-6 font-serif font-normal text-[1.5rem] text-navy">Solicitar agendamento</h3>
         <div className="mb-5">
-          <label className="block mb-2 text-[.75rem] text-muted uppercase tracking-widest">Nome completo</label>
-          <input type="text" placeholder="Seu nome" value={nome} onChange={(e) => setNome(e.target.value)} required className="bg-warm-white px-4 py-3 border border-border focus:border-accent rounded-xs outline-none w-full font-sans text-[.92rem] text-charcoal transition-colors duration-200" />
+          <label className="block mb-2 text-[.75rem] text-slate uppercase tracking-widest">Nome completo</label>
+          <input type="text" placeholder="Seu nome" value={nome} onChange={(e) => setNome(e.target.value)} required className="bg-warm-white px-4 py-3 border border-border focus:border-teal rounded-xs outline-none w-full font-sans text-[.92rem] text-navy transition-colors duration-200" />
         </div>
         <div className="mb-5">
-          <label className="block mb-2 text-[.75rem] text-muted uppercase tracking-widest">Telefone / WhatsApp</label>
-          <input type="tel" placeholder="(00) 00000-0000" value={telefone} onChange={(e) => setTelefone(e.target.value)} required className="bg-warm-white px-4 py-3 border border-border focus:border-accent rounded-xs outline-none w-full font-sans text-[.92rem] text-charcoal transition-colors duration-200" />
+          <label className="block mb-2 text-[.75rem] text-slate uppercase tracking-widest">Telefone / WhatsApp</label>
+          <input type="tel" placeholder="(00) 00000-0000" value={telefone} onChange={handleTelefoneChange} required className="bg-warm-white px-4 py-3 border border-border focus:border-teal rounded-xs outline-none w-full font-sans text-[.92rem] text-navy transition-colors duration-200" />
         </div>
         <div className="mb-5">
-          <label className="block mb-2 text-[.75rem] text-muted uppercase tracking-widest">Especialidade desejada</label>
-          <select value={especialidade} onChange={(e) => setEspecialidade(e.target.value)} required className="bg-warm-white px-4 py-3 border border-border focus:border-accent rounded-xs outline-none w-full font-sans text-[.92rem] text-charcoal transition-colors duration-200">
+          <label className="block mb-2 text-[.75rem] text-slate uppercase tracking-widest">Especialidade desejada</label>
+          <select value={especialidade} onChange={(e) => setEspecialidade(e.target.value)} required className="bg-warm-white px-4 py-3 border border-border focus:border-teal rounded-xs outline-none w-full font-sans text-[.92rem] text-navy transition-colors duration-200">
             <option value="">Selecione...</option>
             <option value="Tireoide">Tireoide</option>
             <option value="Diabetes">Diabetes</option>
@@ -84,10 +93,10 @@ Aguardo retorno. Obrigado!`
           </select>
         </div>
         <div className="mb-5">
-          <label className="block mb-2 text-[.75rem] text-muted uppercase tracking-widest">Mensagem (opcional)</label>
-          <textarea placeholder="Descreva brevemente sua queixa principal..." value={mensagem} onChange={(e) => setMensagem(e.target.value)} className="bg-warm-white px-4 py-3 border border-border focus:border-accent rounded-xs outline-none w-full min-h-22.5 font-sans text-[.92rem] text-charcoal transition-colors duration-200 resize-y"></textarea>
+          <label className="block mb-2 text-[.75rem] text-slate uppercase tracking-widest">Mensagem (opcional)</label>
+          <textarea placeholder="Descreva brevemente sua queixa principal..." value={mensagem} onChange={(e) => setMensagem(e.target.value)} className="bg-warm-white px-4 py-3 border border-border focus:border-teal rounded-xs outline-none w-full min-h-22.5 font-sans text-[.92rem] text-navy transition-colors duration-200 resize-y"></textarea>
         </div>
-        <button type="submit" className="bg-charcoal py-[.9rem] rounded-xs w-full font-sans text-[.82rem] text-warm-white uppercase tracking-[.12em] transition-[background] duration-200 hover:bg-accent-dark cursor-pointer">
+        <button type="submit" className="bg-navy hover:bg-navy-deep py-[.9rem] rounded-xs w-full font-sans text-[.82rem] text-warm-white uppercase tracking-[.12em] transition-[background] duration-200 cursor-pointer">
           Solicitar Agendamento
         </button>
       </form>

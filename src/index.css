@@ -10,17 +10,14 @@
 html { scroll-behavior: smooth; }
 
 @theme {
-  --color-sage: #8B9E89;
-  --color-sage-light: #C8D5C6;
-  --color-sage-pale: #EEF2ED;
+  --color-navy: #1B378C;
+  --color-navy-deep: #172E73;
+  --color-slate: #3E588C;
+  --color-teal: #48D9CA;
+  --color-teal-light: #D5F2EF;
   --color-warm-white: #FAF9F6;
   --color-warm-white-alpha: rgba(250,249,246,0.95);
-  --color-cream: #F4F0E8;
-  --color-charcoal: #2C2C2A;
-  --color-muted: #6B6B68;
-  --color-accent: #6B8E77;
-  --color-accent-dark: #4A6B55;
-  --color-border: rgba(44,44,42,0.1);
+  --color-border: rgba(27,55,140,0.1);
   
   --font-serif: "Cormorant Garamond", serif;
   --font-sans: "DM Sans", sans-serif;
@@ -28,7 +25,7 @@ html { scroll-behavior: smooth; }
 
 body { 
   font-family: 'DM Sans', sans-serif;
-  color: var(--color-charcoal);
+  color: var(--color-navy);
   font-size: 1rem;
   line-height: 1.7;
 }

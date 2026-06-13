@@ -1,10 +1,10 @@
 function Footer() {
   return (
     <>
-      <footer className="items-start gap-8 grid grid-cols-1 sm:grid-cols-3 bg-charcoal p-8 sm:p-12 px-6 sm:px-10 lg:px-16 text-[rgba(250,249,246,0.5)]">
-        <div>
-          <p className="mb-2 font-serif font-normal text-[1.2rem] text-warm-white">Dra. Thaina Pereira</p>
-          <p className="text-[.82rem] leading-[1.6]">Médica Endocrinologista<br />@drathainapereira</p>
+      <footer className="items-start gap-8 grid grid-cols-1 sm:grid-cols-3 bg-navy p-8 sm:p-12 px-6 sm:px-10 lg:px-16 text-[rgba(250,249,246,0.5)]">
+        <div className="leading-6">
+          <p className="font-serif text-[1.2rem] text-warm-white">Dra. Thaina Pereira</p>
+          <p className="text-[.82rem]">Médica Endocrinologista<br />@drathainapereira</p>
         </div>
         <div className="text-[.85rem] text-[rgba(250,249,246,0.55)]">
           <h4 className="mb-4 text-[.72rem] text-[rgba(250,249,246,0.35)] uppercase tracking-[.15em]">Navegação</h4>
@@ -19,8 +19,8 @@ function Footer() {
           <a href="https://www.instagram.com/drathainapereira" target="_blank" rel="noopener noreferrer" className="block mb-2 text-[.85rem] text-[rgba(250,249,246,0.55)] hover:text-warm-white no-underline transition-colors duration-200">@drathainapereira</a>
         </div>
       </footer>
-      <div className="flex flex-col sm:flex-row justify-between items-center gap-1 bg-[rgba(0,0,0,0.8)] px-6 sm:px-10 lg:px-16 py-4 text-[.75rem] text-[rgba(250,249,246,0.3)]">
-        <span className="text-center sm:text-left">© {new Date().getFullYear()} Dra. Thaina Pereira. Todos os direitos reservados.
+      <div className="flex sm:flex-row flex-col justify-between items-center gap-1 bg-[rgba(0,0,0,0.8)] px-6 sm:px-10 lg:px-16 py-4 text-[.75rem] text-[rgba(250,249,246,0.3)]">
+        <span className="sm:text-left text-center">© {new Date().getFullYear()} Dra. Thaina Pereira. Todos os direitos reservados.
           By - <a role="link" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/fabio_ghizoni" className="hover:text-warm-white transition-colors duration-200">Fábio Henrique</a> : <a role="link" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/renew_diggital"  className="hover:text-warm-white transition-colors duration-200">RENEW</a>
         </span>
         <span>CRM SP 216373</span>
