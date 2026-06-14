@@ -1,3 +1,5 @@
+import { WHATSAPP_NUMBER } from "../main"
+
 function Footer() {
   return (
     <>
@@ -15,7 +17,7 @@ function Footer() {
         </div>
         <div>
           <h4 className="mb-4 text-[.72rem] text-[rgba(250,249,246,0.35)] uppercase tracking-[.15em]">Contato</h4>
-          <a href="https://wa.me/5511917983917" target="_blank" rel="noopener noreferrer" className="block mb-2 text-[.85rem] text-[rgba(250,249,246,0.55)] hover:text-warm-white no-underline transition-colors duration-200">WhatsApp</a>
+          <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer" className="block mb-2 text-[.85rem] text-[rgba(250,249,246,0.55)] hover:text-warm-white no-underline transition-colors duration-200">WhatsApp</a>
           <a href="https://www.instagram.com/drathainapereira" target="_blank" rel="noopener noreferrer" className="block mb-2 text-[.85rem] text-[rgba(250,249,246,0.55)] hover:text-warm-white no-underline transition-colors duration-200">@drathainapereira</a>
         </div>
       </footer>

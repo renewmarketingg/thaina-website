@@ -1,7 +1,8 @@
 import { useState } from "react"
-import Phone from "../icons/phone.svg?react"
 import Calendar from "../icons/calendar.svg?react"
+import Phone from "../icons/phone.svg?react"
 import User from "../icons/user.svg?react"
+import { WHATSAPP_NUMBER } from "../main"
 import { validarTelefone } from "../util"
 
 function Consulta() {
@@ -30,7 +31,7 @@ Gostaria de solicitar um agendamento:
 
 Aguardo retorno. Obrigado!`
 
-    window.open(`https://wa.me/5511917983917?text=${encodeURIComponent(texto)}`, "_blank")
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(texto)}`, "_blank")
   }
   
   function handleTelefoneChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -68,7 +69,7 @@ Aguardo retorno. Obrigado!`
         </ul>
 
         <div className="mt-8">
-          <a href="https://wa.me/5511917983917" target="_blank" rel="noopener noreferrer" className="inline-block bg-navy hover:bg-navy-deep px-8 py-[.9rem] rounded-xs text-[.82rem] text-warm-white no-underline uppercase tracking-widest transition-colors duration-200">Falar pelo WhatsApp</a>
+          <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer" className="inline-block bg-navy hover:bg-navy-deep px-8 py-[.9rem] rounded-xs text-[.82rem] text-warm-white no-underline uppercase tracking-widest transition-colors duration-200">Falar pelo WhatsApp</a>
         </div>
       </div>
 

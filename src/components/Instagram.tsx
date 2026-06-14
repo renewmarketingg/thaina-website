@@ -28,8 +28,8 @@ function Instagram() {
           const isCustomCards = i === 1 || i === 2 || i === 3;
           return (
             <a key={i} href="https://www.instagram.com/drathainapereira" target="_blank" rel="noopener noreferrer" className="group rounded-xs aspect-square overflow-hidden">
-              <LazyImage src={img} alt={`Imagem de  Thaina ${i}`} imgClassName={`transition-transform duration-300 group-hover:scale-110 ${isCustomCards ? "object-center" : ""}`}/>
-            </a>
+              <LazyImage src={img} loading="eager" fetchPriority="high" alt={`Imagem de  Thaina ${i}`} imgClassName={`transition-transform duration-300 group-hover:scale-110 ${isCustomCards ? "object-center" : ""}`}/>
+            </a> 
           )
         })}
       </div>

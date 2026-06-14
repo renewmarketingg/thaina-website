@@ -23,18 +23,19 @@ export const LazyImage = ({
   const isClinicPic = src === "/clinovi.webp"
 
   const imgClassNameBase = 'w-full h-full object-cover object-top transition-opacity duration-300'
+  const divClassName = `absolute inset-0 flex flex-col items-center justify-center gap-4 text-slate font-cormorant text-[1rem] italic`
 
   return (
     <div
       aria-busy={!loaded}
-      className={`w-full ${isProfilePic ? 'h-[calc(100dvh-80px)]' : 'h-full'} relative overflow-hidden ${className ?? ''}`}>
+      className={`w-full ${isProfilePic ? 'h-[calc(100dvh-80px)]' : 'h-full'} bg-teal-light relative overflow-hidden ${className ?? ''}`}>
       {!loaded && !error && (
-        <div className={`absolute inset-0 bg-teal-light flex flex-col items-center justify-center gap-4 text-slate font-cormorant text-[1rem] italic`}>
+        <div className={divClassName}>
           <Loading />
         </div>
       )}
       {error && (
-        <div className={`absolute inset-0 bg-teal-light flex flex-col items-center justify-center gap-4 text-slate font-cormorant text-[1rem] italic`}>
+        <div className={divClassName}>
           {isProfilePic && (
             <PersonPlaceholder className="opacity-30" />
           )}
@@ -51,7 +52,7 @@ export const LazyImage = ({
         <img
           src={src}
           alt={alt}
-          loading='lazy'
+          loading={props.loading ?? "lazy"}
           onLoad={() => setLoaded(true)}
           onError={() => setError(true)}
           className={`${isProfilePic ? 'max-h-[calc(100dvh-80px)]' : 'max-h-full'} ${cn(imgClassNameBase, imgClassName)} ${loaded ? 'opacity-100' : 'opacity-0'}`}
