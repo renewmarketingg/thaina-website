@@ -1,7 +1,7 @@
 /// <reference types="vite-plugin-svgr/client" />
 
 interface ImportMetaEnv {
-  readonly WHATSAPP_NUMBER: string
+  readonly VITE_WHATSAPP_NUMBER: string
 }
 
 interface ImportMeta {
