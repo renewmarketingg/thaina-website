@@ -8,6 +8,7 @@ Single-page marketing site for Dra. Thaina Pereira, endocrinologist in Brazil.
 - **Vite 8** with `@vitejs/plugin-react`
 - **Tailwind CSS 4** (CSS-first, `@theme` tokens in `src/index.css`)
 - **ESLint 10** flat config
+- **clsx** + **tailwind-merge** (via `cn()` utility)
 
 ## Commands
 
@@ -28,12 +29,13 @@ src/
   util.ts                   # cn() helper + validarTelefone()
   components/               # Page sections: Navbar, Hero, About, Specialties, Approach, Instagram, Consultation, Footer
   components/ui/            # Reusable: LazyImage, Loading, WhatsAppFloat
-  icons/                    # SVG icon components with barrel export
-public/                     # Static assets (images, SVGs)
+  icons/                    # SVG icon files
+public/                     # Static assets (images, SVGs, favicons)
 ```
 
 ## Sections
 
+- Navbar — fixed top navigation with smooth-scroll links
 - Hero — full-screen presentation with photo and CTA
 - About — professional background and approach
 - Specialties — list of endocrinology areas
@@ -41,6 +43,7 @@ public/                     # Static assets (images, SVGs)
 - Instagram — embedded social proof
 - Consultation — WhatsApp lead capture form
 - Footer — contact info and social links
+- WhatsAppFloat — fixed floating WhatsApp CTA button
 
 ## Content
 
